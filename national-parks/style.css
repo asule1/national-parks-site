@@ -1,0 +1,592 @@
+/* style.css - all 4 pages use this file so I don't repeat the CSS 4 times.
+   each page puts a class on <body> to pick its own colors (bottom of file) */
+
+/* ---- MY COLOR PALETTE ----
+   base colors, used on every page:
+   #1d1a17  near black    - body text
+   #5a5049  warm grey     - captions and small text
+   #f7f3ec  off white     - the light panel behind the text
+   #241f1b  dark brown    - page background
+   #16130f  darker brown  - the nav bar
+   #d8cec0  light tan     - thin border lines
+
+   one accent color per park, swapped in at the bottom of this file:
+   #3f6b3a  forest green  - Sequoia
+   #a4482a  sandstone red - Zion
+   #b2542f  burnt orange  - Bryce Canyon
+   #6b5b8a  dusty purple  - About page
+
+   ---- MY FONTS ----
+   Fraunces      - headings, and the first paragraph on each page
+   Karla         - normal body text
+   Special Elite - typewriter font for my trip notes
+   all three come from Google Fonts, linked in the <head> of each page */
+
+/* colors used everywhere. each page changes some of these further down */
+:root {
+  --ink: #1d1a17;          /* normal text */
+  --ink-soft: #5a5049;     /* captions and small grey text */
+  --paper: #f7f3ec;        /* the light panel */
+  --deep: #241f1b;         /* dark page background */
+  --accent: #8a4a2a;       /* main park color */
+  --accent-soft: #e8d9c8;  /* lighter version of the accent */
+  --rule: #d8cec0;         /* thin border lines */
+}
+
+/* makes padding count inside the width, easier to size things */
+* {
+  box-sizing: border-box;
+}
+
+/* base page setup - dark background and the default font */
+body {
+  margin: 0;
+  background-color: var(--deep);
+  color: var(--ink);
+  font-family: "Karla", "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* the dark bar down the left side with my 3 links in it */
+.rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 210px;
+  height: 100%;
+  padding: 34px 26px;
+  background-color: #16130f;
+  border-right: 1px solid #2f2823;
+}
+
+/* site name at the top of the bar */
+.rail-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #f0e7d8;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+/* small line under the site name */
+.rail-sub {
+  font-size: 12.5px;
+  color: #8d8175;
+  border-bottom: 1px solid #2f2823;
+  padding-bottom: 22px;
+  margin-bottom: 24px;
+}
+
+/* the 3 nav links */
+.rail a {
+  display: inline-block;
+  color: #cfc3b2;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 7px 0;
+  border-bottom: 1px solid transparent;
+}
+
+/* lights up when you mouse over it */
+.rail a:hover {
+  color: #ffffff;
+  border-bottom-color: var(--accent);
+}
+
+/* shows which page you're on right now */
+.rail a.current {
+  color: #ffffff;
+  border-bottom-color: var(--accent);
+}
+
+/* outline when you tab through with the keyboard */
+.rail a:focus-visible,
+.paper a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* little note stuck at the bottom of the bar */
+.rail-foot {
+  position: absolute;
+  bottom: 30px;
+  left: 26px;
+  right: 26px;
+  font-size: 11.5px;
+  color: #6f6559;
+  line-height: 1.55;
+}
+
+/* everything to the right of the bar. 210px = width of the bar */
+.main {
+  margin-left: 210px;
+}
+
+/* big photo at the top with the title sitting on it (Bryce page) */
+.hero {
+  position: relative;
+  height: 62vh;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+/* different version for tall photos (Sequoia + Zion). a tall photo
+   squeezed into a wide strip loses most of the picture, so here the
+   photo gets its own column and the title goes next to it */
+.hero.tall {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  min-height: 0;
+  background-color: #16130f;
+}
+
+/* title column */
+.hero.tall .hero-text {
+  position: static;
+  flex: 1;
+  align-self: center;
+  padding: 50px 54px;
+}
+
+/* photo column. max-height stops a tall photo filling the whole screen */
+.hero.tall img {
+  width: 46%;
+  max-height: 78vh;
+}
+
+/* no dark fade needed here since the text isn't on top of the photo */
+.hero.tall .hero-shade {
+  display: none;
+}
+
+/* the photo itself. cover crops it to fit instead of stretching it */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* dark fade at the bottom of the photo so white text stays readable */
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 16, 13, 0.88) 0%, rgba(20, 16, 13, 0.25) 45%, rgba(20, 16, 13, 0) 75%);
+}
+
+/* the title block */
+.hero-text {
+  position: absolute;
+  left: 54px;
+  right: 54px;
+  bottom: 64px;
+  color: #ffffff;
+}
+
+/* the "Park 02 of 03" line */
+.hero-index {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #e2c9ac;
+  margin-bottom: 6px;
+}
+
+/* main heading of the page */
+.hero h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 62px;
+  font-weight: 600;
+  line-height: 1.02;
+  margin: 0 0 10px 0;
+}
+
+/* state and year under the heading */
+.hero-where {
+  font-size: 15px;
+  color: #d9cdbd;
+}
+
+/* light panel holding the text. the negative margin pulls it up
+   so it overlaps the bottom of the photo */
+.paper {
+  background-color: var(--paper);
+  margin: -46px 40px 40px 40px;
+  padding: 52px 60px 60px 60px;
+  position: relative;
+  max-width: 900px;
+}
+
+/* PARAGRAPH 1 - big serif type in the park's color */
+.lede {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 25px;
+  line-height: 1.45;
+  color: var(--accent);
+  margin: 0 0 34px 0;
+}
+
+/* the giant first letter on paragraph 1 */
+.lede::first-letter {
+  font-size: 74px;
+  line-height: 0.8;
+  float: left;
+  padding: 6px 12px 0 0;
+  color: var(--ink);
+}
+
+/* PARAGRAPH 2 - different font, colored box, thick bar on the left */
+.body-note {
+  font-family: "Karla", Arial, sans-serif;
+  font-size: 17px;
+  color: var(--ink);
+  background-color: var(--accent-soft);
+  border-left: 5px solid var(--accent);
+  padding: 22px 26px;
+  margin: 0 0 34px 0;
+}
+
+/* PARAGRAPH 3 - typewriter font and a dashed line, looks like a trip note */
+.journal {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  border-left: 1px dashed var(--rule);
+  padding-left: 26px;
+  margin: 0 0 10px 0;
+}
+
+/* the "- Angels Landing summit" line under paragraph 3 */
+.signed {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  color: #9c9085;
+  padding-left: 26px;
+}
+
+/* extra photo inside the panel. not used right now, kept in case
+   I add a second photo to a page */
+.plate {
+  margin: 40px 0 34px 0;
+}
+
+.plate img {
+  width: 100%;
+  display: block;
+}
+
+/* small caption under a photo */
+.caption {
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 8px;
+  margin-top: 10px;
+}
+
+/* smaller headings, like "What to bring for Angels Landing" */
+h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 27px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 44px 0 16px 0;
+}
+
+/* my bulleted list. list-style none turns off the normal dot
+   so I can draw my own marker below */
+.kit {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kit li {
+  position: relative;
+  padding: 11px 0 11px 34px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* my own bullet - a small square turned 45 degrees so it's a diamond */
+.kit li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 21px;
+  width: 9px;
+  height: 9px;
+  background-color: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* my table. border-collapse joins the cell borders into single lines */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* top row of the table */
+th {
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 13px 16px;
+}
+
+/* normal cells */
+td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+/* shades every other row so it's easier to read across */
+tbody tr:nth-child(even) {
+  background-color: #efe8dc;
+}
+
+/* highlights the row for the park you're reading about */
+tbody tr.here td {
+  background-color: var(--accent-soft);
+  font-weight: 700;
+}
+
+/* small note under the table */
+.source {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+/* the "next park" link at the bottom of each page */
+.next {
+  margin-top: 50px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ink);
+}
+
+.next a {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 23px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.next a:hover {
+  text-decoration: underline;
+}
+
+.next span {
+  display: block;
+  font-family: "Karla", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* each page uses one of these to get its own colors.
+   the class goes on the <body> tag */
+
+/* Sequoia - forest green */
+body.page-sequoia {
+  --accent: #3f6b3a;
+  --accent-soft: #e2e9dc;
+  --deep: #16211a;
+}
+
+/* Zion - red sandstone */
+body.page-zion {
+  --accent: #a4482a;
+  --accent-soft: #f2e0d4;
+  --deep: #2a1712;
+}
+
+/* Bryce - orange and purple */
+body.page-bryce {
+  --accent: #b2542f;
+  --accent-soft: #f6e2d5;
+  --deep: #241a2b;
+}
+
+/* About - dusty purple */
+body.page-about {
+  --accent: #6b5b8a;
+  --accent-soft: #e6e2ee;
+  --deep: #1f1c26;
+}
+
+/* ---- CSS GRID LAYOUT (about page) ----
+   the other 3 pages pin the nav bar with position: fixed. on the about
+   page I used CSS Grid instead. grid-template-columns makes 2 columns:
+   the first is exactly 210px for the nav links, the second is 1fr which
+   means "whatever space is left" for the content. */
+.grid-page {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  min-height: 100vh;
+}
+
+/* the nav goes in column 1, the content in column 2.
+   naming them is optional but makes it obvious what goes where */
+.grid-nav {
+  grid-column: 1;
+}
+
+.grid-content {
+  grid-column: 2;
+  padding: 60px 54px;
+}
+
+/* inside the grid the nav scrolls with the page instead of being pinned,
+   so it can't be fixed anymore. relative keeps the footer note in place */
+.page-about .rail {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 100vh;
+}
+
+/* the fixed bar is gone on this page so no left margin is needed */
+.page-about .main {
+  margin-left: 0;
+}
+
+/* heading at the top of the about page */
+.about-head h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 52px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.05;
+  margin: 0 0 8px 0;
+}
+
+.about-head p {
+  color: #a79dba;
+  margin: 0 0 34px 0;
+}
+
+/* the white panel with my paragraphs in it */
+.about-panel {
+  background-color: var(--paper);
+  padding: 46px 50px;
+  max-width: 820px;
+}
+
+/* my social links at the bottom */
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+}
+
+.links li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.links a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* the grey "GitHub" / "LinkedIn" label before each link */
+.links span {
+  display: inline-block;
+  width: 90px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* phone and small screens. the side bar moves to the top
+   and everything goes into one column */
+@media (max-width: 820px) {
+  .rail {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 22px 24px;
+  }
+
+  .rail-foot {
+    position: static;
+    margin-top: 18px;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .paper {
+    margin: -30px 16px 24px 16px;
+    padding: 32px 24px 40px 24px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  /* photo on top, title underneath instead of side by side */
+  .hero.tall {
+    display: block;
+  }
+
+  .hero.tall img {
+    width: 100%;
+    max-height: 52vh;
+  }
+
+  .hero.tall .hero-text {
+    padding: 26px 24px 32px 24px;
+  }
+
+  .hero-text {
+    left: 24px;
+    right: 24px;
+  }
+
+  .lede {
+    font-size: 21px;
+  }
+
+  /* lets a wide table scroll sideways on a phone instead of breaking */
+  .scroller {
+    overflow-x: auto;
+  }
+
+  /* the grid drops from 2 columns to 1, so the nav sits above the content */
+  .grid-page {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-nav,
+  .grid-content {
+    grid-column: 1;
+  }
+
+  .grid-content {
+    padding: 30px 20px;
+  }
+
+  .page-about .rail {
+    min-height: 0;
+  }
+
+  .about-head h1 {
+    font-size: 34px;
+  }
+
+  .about-panel {
+    padding: 28px 22px;
+  }
+}

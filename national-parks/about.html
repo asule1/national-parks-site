@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- about page. this one uses CSS Grid for the layout instead of the
+     fixed nav bar the other 3 pages use. the grid rules are in style.css -->
+<html lang="en">
+
+<head>
+  <!-- character set, and scaling so it works on a phone -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- what shows on the browser tab -->
+  <title>About | Field Notes</title>
+
+  <!-- my 3 fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- my external stylesheet. same file all 4 pages use -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- page-about sets the purple color scheme for this page -->
+<body class="page-about">
+
+  <!-- the grid. 2 columns: nav on the left, content on the right -->
+  <div class="grid-page">
+
+    <!-- COLUMN 1 - navigation.
+         relative links so they still work after the folder is zipped.
+         <br> puts each link on its own line -->
+    <nav class="grid-nav rail">
+      <div class="rail-title">Field Notes</div>
+      <div class="rail-sub">Three parks, one road trip</div>
+
+      <a href="index.html">Sequoia</a><br>
+      <a href="zion.html">Zion</a><br>
+      <a href="bryce-canyon.html">Bryce Canyon</a><br>
+      <a href="about.html" class="current">About</a>
+
+      <div class="rail-foot">
+        California and southern Utah<br>
+        Photographs and notes from the trip
+      </div>
+    </nav>
+
+    <!-- COLUMN 2 - everything else on the page -->
+    <main class="grid-content">
+
+      <!-- page heading -->
+      <div class="about-head">
+        <h1>About this site</h1>
+        <p>Why I built it, and who made it</p>
+      </div>
+
+      <!-- white panel holding the text -->
+      <div class="about-panel">
+
+        <!-- PARAGRAPH 1 - big serif font with the large first letter -->
+        <p class="lede">
+          I built this site because I went to these three parks and did not want the trip to end up as
+          a folder of photos I never opened again.
+        </p>
+
+        <!-- PARAGRAPH 2 - different font, colored box, bar on the left -->
+        <p class="body-note">
+          It started as a class assignment. We had to build three linked pages, and instead of picking
+          a topic at random I used Sequoia, Zion and Bryce Canyon, because I had actually been to all
+          three. That made the whole thing easier to write. I already knew what the trees felt like
+          standing under them and how cold the morning was at Bryce, so the text came from memory
+          rather than from copying facts off a website. Once I had a real reason to care how it looked,
+          I ended up putting a lot more work into it than the assignment needed.
+        </p>
+
+        <!-- PARAGRAPH 3 - typewriter font, styled like my trip notes -->
+        <p class="journal">
+          Angels Landing is the part that pushed me to actually finish it. That hike was the most
+          scared I have been and also the best view I have ever climbed to, and both of those are hard
+          to get across in a caption. Giving it a full page with room to write felt like the right way
+          to keep it.
+        </p>
+
+        <!-- one more paragraph about the code side of it -->
+        <p class="body-note">
+          I am a computer science student at Georgia State, so the other reason I kept going was that
+          I wanted the practice. Everything here is hand written HTML and CSS with no frameworks. The
+          layout on this page uses CSS Grid, the other three pages use flexbox, and all the styling
+          lives in one external stylesheet so I only write it once. Building something I actually
+          wanted to look at taught me more than another practice exercise would have.
+        </p>
+
+        <!-- SOCIAL LINKS -->
+        <h2>Find me</h2>
+        <ul class="links">
+          <li><span>GitHub</span><a href="https://github.com/asule1">github.com/asule1</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/aditya-sule-096313293/">linkedin.com/in/aditya-sule</a></li>
+        </ul>
+
+        <!-- link back to the first page -->
+        <div class="next">
+          <span>Start the trip</span>
+          <a href="index.html">Sequoia National Park &rarr;</a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
