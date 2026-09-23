@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PAGE 2 of 3 - Zion National Park
+     This is the page that carries the two extra required
+     elements: a bulleted list and a table.
+     ============================================================ -->
+<html lang="en">
+
+<head>
+  <!-- Character encoding, and scaling settings for phone screens -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Wording shown on the browser tab -->
+  <title>Zion National Park | Field Notes</title>
+
+  <!-- Same three fonts as the other pages -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet, loaded with a relative link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- The page-zion class switches the palette to sandstone red -->
+<body class="page-zion">
+
+  <!-- ==========================================================
+       SIDE RAIL - relative links to all three pages,
+       stacked using <br> tags
+       ========================================================== -->
+  <nav class="rail">
+    <div class="rail-title">Field Notes</div>
+    <div class="rail-sub">Three parks, one road trip</div>
+
+    <a href="index.html">Sequoia</a><br>
+    <a href="zion.html" class="current">Zion</a><br>
+    <a href="bryce-canyon.html">Bryce Canyon</a>
+
+    <div class="rail-foot">
+      California and southern Utah<br>
+      Photographs and notes from the trip
+    </div>
+  </nav>
+
+  <!-- Everything to the right of the rail -->
+  <div class="main">
+
+    <!-- ========================================================
+         HERO - large photo with the page heading over it
+         ======================================================== -->
+    <!-- The "tall" class switches to the split layout, because this
+         photograph is portrait rather than landscape -->
+    <header class="hero tall">
+      <img src="images/zion.jpg" alt="Hikers on the narrow chain-assisted ridge of Angels Landing, with the canyon dropping away on both sides">
+      <div class="hero-shade"></div>
+
+      <div class="hero-text">
+        <div class="hero-index">Park 02 of 03</div>
+        <!-- MAIN HEADING FOR THIS PAGE -->
+        <h1>Zion<br>National Park</h1>
+        <div class="hero-where">Springdale, Utah &middot; Established 1919</div>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         CONTENT PANEL
+         ======================================================== -->
+    <main class="paper">
+
+      <!-- PARAGRAPH 1 - class "lede" (large serif with a drop cap) -->
+      <p class="lede">
+        Zion is a canyon you walk through from the bottom rather than look down into from the rim. The
+        Virgin River cut it out of Navajo sandstone, and the walls now stand nearly half a mile above
+        the road on either side.
+      </p>
+
+      <!-- PARAGRAPH 2 - class "body-note" (tinted panel with accent bar) -->
+      <p class="body-note">
+        The hike I remember most is Angels Landing. The first stretch switchbacks up the canyon wall
+        through a set of tight turns called Walter's Wiggles, and that part is only tiring. The last
+        half mile is the part people talk about: a narrow fin of rock with long drops on both sides,
+        where a chain bolted into the stone is the only thing to hold. Permits are now issued by
+        lottery, so it has to be planned well ahead of the trip.
+      </p>
+
+      <!-- PARAGRAPH 3 - class "journal" (typewriter note) -->
+      <p class="journal">
+        Terrifying is the honest word for it. I stopped twice on the chains and told myself I was fine
+        looking at the rock in front of me and nothing else. Then you get to the top and the whole
+        canyon opens up underneath you at once, and it is easily the best thing I have ever climbed to.
+      </p>
+      <p class="signed">&mdash; Angels Landing summit, mid-morning</p>
+
+      <!-- ======================================================
+           BULLETED LIST
+           <ul> creates the list and each <li> is one item.
+           The dot marker is turned off in the CSS and replaced
+           with a diamond drawn in the park's accent color.
+           ====================================================== -->
+      <h2>What to bring for Angels Landing</h2>
+      <ul class="kit">
+        <li>At least three liters of water per person</li>
+        <li>Shoes with real grip, not everyday sneakers</li>
+        <li>Gloves for the chain section</li>
+        <li>Your permit, printed or on your phone</li>
+        <li>Sunscreen and a hat, since the ridge has no shade at all</li>
+        <li>A small pack, so both hands stay free the whole way up</li>
+      </ul>
+
+      <!-- ======================================================
+           TABLE
+           <table> holds the whole thing, <thead> is the header
+           section and <tbody> the data section. <tr> is one row,
+           <th> a header cell and <td> a normal data cell.
+           The wrapper div lets the table scroll sideways on a
+           phone instead of breaking the layout.
+           ====================================================== -->
+      <h2>The three parks compared</h2>
+      <div class="scroller">
+        <table>
+          <thead>
+            <tr>
+              <th>Park</th>
+              <th>State</th>
+              <th>Established</th>
+              <th>Size (acres)</th>
+              <th>Known for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sequoia</td>
+              <td>California</td>
+              <td>1890</td>
+              <td>404,064</td>
+              <td>The largest trees on Earth</td>
+            </tr>
+
+            <!-- The "here" class shades the row for the park
+                 whose page you are currently reading -->
+            <tr class="here">
+              <td>Zion</td>
+              <td>Utah</td>
+              <td>1919</td>
+              <td>147,242</td>
+              <td>Slot canyons and Angels Landing</td>
+            </tr>
+
+            <tr>
+              <td>Bryce Canyon</td>
+              <td>Utah</td>
+              <td>1928</td>
+              <td>35,835</td>
+              <td>Hoodoo rock spires</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source">Figures from the National Park Service.</p>
+
+      <!-- FOOTER LINK - relative link on to the next park -->
+      <div class="next">
+        <span>Next park</span>
+        <a href="bryce-canyon.html">Bryce Canyon National Park &rarr;</a>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>

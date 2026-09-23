@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PAGE 1 of 3 - Sequoia National Park
+     Named index.html because that is the file a browser opens
+     first when it is given a folder.
+     ============================================================ -->
+<html lang="en">
+
+<head>
+  <!-- Character encoding, and scaling settings for phone screens -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Wording shown on the browser tab -->
+  <title>Sequoia National Park | Field Notes</title>
+
+  <!-- Fonts loaded from Google Fonts:
+       Fraunces for headings, Karla for body text,
+       Special Elite (typewriter) for the journal paragraph -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet, loaded with a relative link.
+       All three pages use this same file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- The page-sequoia class switches the whole site palette to
+     this park's green and bark colors -->
+<body class="page-sequoia">
+
+  <!-- ==========================================================
+       SIDE RAIL - the navigation for the whole site.
+       These are RELATIVE links: only the file name is used, with
+       no drive letter and no http address, so they keep working
+       after the folder is zipped and opened on another computer.
+       The <br> tags stack the three links vertically.
+       ========================================================== -->
+  <nav class="rail">
+    <div class="rail-title">Field Notes</div>
+    <div class="rail-sub">Three parks, one road trip</div>
+
+    <a href="index.html" class="current">Sequoia</a><br>
+    <a href="zion.html">Zion</a><br>
+    <a href="bryce-canyon.html">Bryce Canyon</a>
+
+    <div class="rail-foot">
+      California and southern Utah<br>
+      Photographs and notes from the trip
+    </div>
+  </nav>
+
+  <!-- Everything to the right of the rail -->
+  <div class="main">
+
+    <!-- ========================================================
+         HERO - the large photo with the page heading over it.
+         The image path is relative: the images folder sits next
+         to this HTML file.
+         ======================================================== -->
+    <!-- The "tall" class switches to the split layout, because this
+         photograph is portrait rather than landscape -->
+    <header class="hero tall">
+      <img src="images/sequoia.jpg" alt="A person standing at the base of a cluster of giant sequoias, dwarfed by the trunks">
+
+      <!-- Dark gradient so the white heading stays readable -->
+      <div class="hero-shade"></div>
+
+      <div class="hero-text">
+        <div class="hero-index">Park 01 of 03</div>
+        <!-- MAIN HEADING FOR THIS PAGE -->
+        <h1>Sequoia<br>National Park</h1>
+        <div class="hero-where">Sierra Nevada, California &middot; Established 1890</div>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         CONTENT PANEL - holds the three paragraphs and the
+         second photo. It is pulled upward so it overlaps the
+         bottom edge of the hero photo.
+         ======================================================== -->
+    <main class="paper">
+
+      <!-- PARAGRAPH 1 - class "lede"
+           Large serif type in the park's accent color, with a
+           drop cap on the first letter. -->
+      <p class="lede">
+        Sequoia protects the largest trees on the planet, and standing at the base of one is a strange
+        experience, because there is nothing nearby to judge the scale against. The trunk stops reading
+        as a tree and starts reading as a wall.
+      </p>
+
+      <!-- PARAGRAPH 2 - class "body-note"
+           Sans-serif on a tinted background with an accent bar. -->
+      <p class="body-note">
+        The park's most famous resident is the General Sherman Tree, roughly 275 feet tall and more than
+        36 feet across at the base, the largest single-stem tree on Earth by volume. Several more of the
+        ten largest trees in the world stand within a short walk of it in the Giant Forest, and the loop
+        trail through that grove is flat enough for almost anyone. Higher up, the road climbs to Moro
+        Rock, a granite dome with a staircase cut into its side that opens onto the whole Great Western
+        Divide.
+      </p>
+
+      <!-- PARAGRAPH 3 - class "journal"
+           Typewriter face with a dashed rule, styled to read
+           like a note written on the trip. -->
+      <p class="journal">
+        What stayed with me was the quiet. The canopy is so far overhead that sound seems to vanish into
+        it before it can come back down, and the whole forest floor smells like warm bark and dust. I
+        still think about it whenever I smell anything close to that.
+      </p>
+      <p class="signed">&mdash; Giant Forest, late afternoon</p>
+
+      <!-- ======================================================
+           FOOTER LINK - relative link on to the next park
+           ====================================================== -->
+      <div class="next">
+        <span>Next park</span>
+        <a href="zion.html">Zion National Park &rarr;</a>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>
