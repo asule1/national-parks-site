@@ -36,7 +36,17 @@
 
     <a href="index.html">Sequoia</a><br>
     <a href="zion.html" class="current">Zion</a><br>
-    <a href="bryce-canyon.html">Bryce Canyon</a>
+    <a href="bryce-canyon.html">Bryce Canyon</a><br>
+      <a href="about.html">About</a>
+
+    <!-- DARK MODE BUTTON
+         theme.js listens for a click on this and swaps the color
+         variables in style.css. aria-pressed tells a screen reader
+         whether dark mode is currently on. -->
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true"></span>
+      <span class="theme-toggle-label">Dark mode</span>
+    </button>
 
     <div class="rail-foot">
       California and southern Utah<br>
@@ -168,6 +178,11 @@
 
     </main>
   </div>
+
+
+  <!-- the dark mode script. loaded at the end of the page so the button
+       and the <body> tag both exist by the time it runs -->
+  <script src="theme.js"></script>
 
 </body>
 
